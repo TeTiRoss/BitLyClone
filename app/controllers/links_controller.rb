@@ -34,7 +34,7 @@ class LinksController < ApplicationController
         link_name = random_name
       end
     end
-    link_name = 'http://' + request.domain + '/' + link_name
+    link_name = 'http://' + request.host + '/' + link_name
   end
 
   def random_name(length = 7)

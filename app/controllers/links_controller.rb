@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:show, :shortened]
+  before_action :set_link, only: [:show]
 
   def new
     @link = Link.new
@@ -10,7 +10,8 @@ class LinksController < ApplicationController
     @link.name = create_link_name
 
     if @link.save
-      redirect_to shortened_links_path(id: @link.id)
+      session[:link_name] = @link.name
+      redirect_to new_link_path
     else
       flash.now.alert = 'Not valid link'
       render :new
@@ -19,9 +20,6 @@ class LinksController < ApplicationController
 
   def show
     redirect_to @link.path
-  end
-
-  def shortened
   end
 
   private
@@ -34,7 +32,7 @@ class LinksController < ApplicationController
         link_name = random_name
       end
     end
-    link_name = 'http://' + request.host + '/' + link_name
+    full_link_name = 'http://' + request.host + '/' + link_name
   end
 
   def random_name(length = 7)
@@ -45,6 +43,6 @@ class LinksController < ApplicationController
   end
 
   def set_link
-    @link = Link.find(params[:id])
+    @link = Link.friendly.find(params[:id])
   end
 end

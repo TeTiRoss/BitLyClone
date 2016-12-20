@@ -10,6 +10,7 @@ class LinksController < ApplicationController
     @link.name = create_link_name
 
     if @link.save
+      session[:link_path] = @link.path
       session[:link_name] = @link.name
       redirect_to root_path
     else

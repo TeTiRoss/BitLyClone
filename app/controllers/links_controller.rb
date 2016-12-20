@@ -12,7 +12,7 @@ class LinksController < ApplicationController
     if @link.save
       session[:link_path] = @link.path
       session[:link_name] = @link.name
-      redirect_to root_path
+      redirect_to root_path, notice: 'Your link has been shortened'
     else
       flash.now.alert = 'Not valid link'
       render :new

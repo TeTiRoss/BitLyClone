@@ -1,6 +1,11 @@
 = render 'form'
 
 - if session[:link_name]
-  h3 Your link has been shortened
-  h4.shortened-link 
-    = create_link(session[:link_name])
+  .panel.panel-default.result_panel
+    .panel-body
+      h4 Shortened link:
+      p.shortened-link 
+        = create_link(session[:link_name])
+      h4 Origin link:
+      p.origin-link 
+        = session[:link_path]

@@ -1,3 +1,14 @@
 .shortened-link {
-  color: rgb(71, 186, 244)
+  color: rgb(60, 161, 195);
+  font-weight: bold;
+}
+
+.origin-link {
+  color: rgb(130, 130, 130);
+  font-weight: bold;
+}
+
+.result_panel {
+  margin-top: 10px;
+  overflow: auto;
 }

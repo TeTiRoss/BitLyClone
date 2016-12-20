@@ -11,7 +11,7 @@ class LinksController < ApplicationController
 
     if @link.save
       session[:link_name] = @link.name
-      redirect_to new_link_path
+      redirect_to root_path
     else
       flash.now.alert = 'Not valid link'
       render :new
@@ -32,7 +32,7 @@ class LinksController < ApplicationController
         link_name = random_name
       end
     end
-    full_link_name = 'http://' + request.host + '/' + link_name
+    link_name
   end
 
   def random_name(length = 7)
@@ -43,6 +43,6 @@ class LinksController < ApplicationController
   end
 
   def set_link
-    @link = Link.friendly.find(params[:id])
+    @link = Link.find_by(name: params[:name])
   end
 end

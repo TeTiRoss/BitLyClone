@@ -13,6 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 
+.rspec
 /public/uploads/
 
 # Ignore Byebug command history file.

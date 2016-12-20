@@ -31,11 +31,27 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Call 'byebug' anywhere in the code to stop
+  # execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails', require: false
+  # Rails rspec matchers
+  gem 'shoulda-matchers', '~> 2.8.0'
+  # Ensure a clean state for testing
+  gem 'database_cleaner', '~> 1.4.1', require: false
+  # Integration testing
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'launchy'
 end
 
 group :development do
+  gem 'better_errors'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
   gem 'listen', '~> 3.0.5'

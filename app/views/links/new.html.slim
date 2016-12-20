@@ -1,1 +1,6 @@
 = render 'form'
+
+- if session[:link_name]
+  h3 Your link has been shortened
+  a href="#{session[:link_name]}"
+    = session[:link_name]

@@ -1,0 +1,8 @@
+h3 Your link has been shortened
+p 
+  b Shortened link: 
+  a href= "http://#{@link.path}"
+    = @link.name
+p 
+  b Link: 
+  = link_to @link.path, "http://#{@link.path}" 

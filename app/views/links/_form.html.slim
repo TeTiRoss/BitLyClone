@@ -1,7 +1,5 @@
-.col-md-4.col-md-offset-4
-  = simple_form_for @link do |f|
-    = f.error_notification
+= simple_form_for @link do |f|
 
-    = f.input :path, label: false, input_html: { rows: 1 }
+  = f.input :path, label: false, input_html: { rows: 1 }
 
-    = f.button :submit, 'Shorten link', class: 'btn btn-info'
+  = f.button :submit, 'Shorten link', class: 'btn btn-info'

@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'shorten link' do
+  background do
+    FactoryGirl.create(:link_name_setting)
+  end
+
   before(:each) do
     visit root_path
   end

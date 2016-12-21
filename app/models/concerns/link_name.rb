@@ -1,4 +1,4 @@
-module Link::LinkName
+module LinkName
   extend ActiveSupport::Concern
 
   included do

@@ -1,4 +1,4 @@
-module Link::LinkPath
+module LinkPath
   extend ActiveSupport::Concern
 
   included do

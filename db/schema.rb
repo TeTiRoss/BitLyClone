@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220121331) do
+ActiveRecord::Schema.define(version: 20161221154742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "link_name_settings", force: :cascade do |t|
+    t.string   "characters"
+    t.integer  "length"
+    t.bigint   "variations"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "links", force: :cascade do |t|
     t.string   "name"

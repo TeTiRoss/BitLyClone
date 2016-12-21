@@ -1,0 +1,2 @@
+class LinkNameSetting < ApplicationRecord
+end

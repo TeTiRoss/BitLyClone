@@ -7,7 +7,6 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(path: params[:link][:path])
-    @link.name = create_link_name
 
     if @link.save
       session[:link_path] = @link.path
@@ -20,30 +19,7 @@ class LinksController < ApplicationController
   end
 
   def show
-    redirect_to @link.path
-  end
-
-  private
-
-  def create_link_name
-    valid_name = false
-    while valid_name == false
-      if Link.find_by(name: random_name).blank?
-        valid_name = true
-        link_name = random_name
-      end
-    end
-    link_name
-  end
-
-  def random_name(length = 7)
-    chars = 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ0123456789'
-    name = ''
-    length.times { name << chars[rand(chars.size)] }
-    name
-  end
-
-  def set_link
-    @link = Link.find_by(name: params[:name])
+    link = Link.find_by(name: params[:name])
+    redirect_to link.path
   end
 end

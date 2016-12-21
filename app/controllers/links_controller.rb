@@ -1,6 +1,5 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:show]
-
+  
   def new
     @link = Link.new
   end

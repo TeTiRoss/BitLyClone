@@ -33,6 +33,9 @@ module LinkName
   def check_name_variations_left
     if Link.count == link_name_setting.variations
       link_name_setting.length += 1
+      link_name_setting.variations = link_name_setting.
+                                     characters ** link_name_setting.length
+      link_name_setting.save
     end
   end
 
